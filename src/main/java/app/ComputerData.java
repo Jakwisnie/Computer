@@ -8,6 +8,7 @@ public class ComputerData {
     private static final DecimalFormat dfSharp = new DecimalFormat("#.##");
     private static String[] names = {"Apple", "Dell", "HP", "Lenovo", "Acer", "Asus","Toshiba","Gigabyte",
             "Samsung","MSI","Sony"};
+    private static LocalDate[] dates = {LocalDate.of(2022, 01, 10),LocalDate.of(2022, 01, 03)};
 
     public static Computer getRandomComputer() throws IOException {
         Computer computer = new Computer();

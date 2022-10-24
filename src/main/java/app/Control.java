@@ -46,9 +46,18 @@ public class Control {
         model.addAttribute("output",resultList.toString());
         return "output";
     }
+    @RequestMapping("/viewbydateasc")
+    public String viewbydateasc(Model model) {
 
-    @RequestMapping("/viewbydate")
-    public String viewbydate(Model model) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("localdatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        List resultList = entityManager.createNativeQuery(" SELECT * FROM Computers ORDER BY date  ASC ",Computer.class).getResultList();
+        System.out.println(resultList.toString());
+        model.addAttribute("output",resultList.toString());
+        return "output";
+    }
+    @RequestMapping("/viewbydatedesc")
+    public String viewbydatedesc(Model model) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("localdatabase");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -57,6 +66,30 @@ public class Control {
         model.addAttribute("output",resultList.toString());
         return "output";
     }
+
+
+    @RequestMapping("/viewbynameasc")
+    public String viewbynameasc(Model model) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("localdatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        List resultList = entityManager.createNativeQuery(" SELECT * FROM Computers ORDER BY name  ASC ",Computer.class).getResultList();
+        System.out.println(resultList.toString());
+        model.addAttribute("output",resultList.toString());
+        return "output";
+    }
+    @RequestMapping("/viewbynamedesc")
+    public String viewbynamedesc(Model model) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("localdatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        List resultList = entityManager.createNativeQuery(" SELECT * FROM Computers ORDER BY name  DESC ",Computer.class).getResultList();
+        System.out.println(resultList.toString());
+        model.addAttribute("output",resultList.toString());
+        return "output";
+    }
+
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home(@ModelAttribute Computer computer) {
 
