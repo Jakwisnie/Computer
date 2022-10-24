@@ -16,7 +16,7 @@ public class ComputerData {
         double usdFixed =Math.round((usd* 100.0) / 100.0);
         computer.setName(names[(int) (Math.random() * names.length)]);
         computer.setPrice_usd(usdFixed);
-        computer.setDate(LocalDate.of(2022, 01, 11));
+        computer.setDate(dates[(int) (Math.random() * dates.length)]);
         double pln = Control.set_PLN(usdFixed, computer.getDate()) ;
         double plnFixed =Math.round((pln* 100.0) / 100.0);
         computer.setPrice_pln(plnFixed);
