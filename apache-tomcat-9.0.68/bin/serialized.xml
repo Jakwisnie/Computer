@@ -1,1 +1,1 @@
-<Faktura><Computer><id>42</id><name>Toshiba</name><date>2022-01-11</date><price_usd>376.0</price_usd><price_pln>1526.0</price_pln></Computer></Faktura>
+<Faktura><komputer> <nazwa> Lenovo </nazwa><data_ksiegowania> 2022-01-10 </data_ksiegowania><koszt_USD> 333.0 </koszt_USD><koszt_PLN> 1350.0 </koszt_PLN> </komputer></Faktura>

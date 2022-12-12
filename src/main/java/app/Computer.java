@@ -59,9 +59,11 @@ public class Computer {
     }
     @Override
     public String toString() {
-        return "Computer{" +
-                "name=" + name +
-                ", date=" + date + ", price_usd=" + price_usd +", price_pln="+price_pln +
-                '}';
+        return "<komputer> " +
+                "<nazwa> " + name +" </nazwa>"+
+                "<data_ksiegowania> " + date +" </data_ksiegowania>"+
+                "<koszt_USD> " + price_usd + " </koszt_USD>"+
+                "<koszt_PLN> "+price_pln +" </koszt_PLN>"+
+                " </komputer>";
     }
 }
