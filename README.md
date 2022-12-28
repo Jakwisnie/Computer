@@ -19,6 +19,7 @@ W zaleznosci od potrzebnego dzialania uzytkownik inicjuje przy pomocy html inna 
 /delete/{id} - usuniecie komputera o {id} z bazy danych
 /update/{id} - formularz do edycji komputera o {id} z bazy danych
 /udpdateAfter - wyswietla jaki komputer zostal zaktualizowany, w tle zachodzi cala edycja komputera i wstawienie do bazy danych
+/facture - tworzy fakture na podstawie stworzonych komputerow w aktualnej sesji
 funkcja setPLN - wysyła zapytanie do api oraz oblicza wartosc pln na podstawie otrzymanego kursu
 funkcja add - zapisuje w bazie danych obiekt komputer
 
