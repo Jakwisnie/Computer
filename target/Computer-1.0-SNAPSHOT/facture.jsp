@@ -6,10 +6,7 @@
     <title></title>
 </head>
 <body>
-<button onclick="document.location='addRandom'">Add random</button>
-<button onclick="document.location='view'">View all</button>
-<button onclick="document.location='add'">Add single</button>
-<button onclick="document.location='facture'">Create Facture</button>
+<button onclick="document.location='home'">Powrot</button><br>
 <h3>${output}</h3>
 </body>
 </html>

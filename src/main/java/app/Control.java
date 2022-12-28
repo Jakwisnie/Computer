@@ -1,15 +1,14 @@
 package app;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -171,6 +170,24 @@ public class Control {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("localdatabase");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         List resultList = entityManager.createNativeQuery(" SELECT * FROM Computers ORDER BY name DESC ",Computer.class).getResultList();
+        Computer[] array = new Computer[resultList.size()];
+        for(int i = 0; i < resultList.size(); i++)
+        { array[i] = (Computer) resultList.get(i); }
+        request.setAttribute("computers", array);
+        request.getRequestDispatcher("output.jsp").forward(request, response);
+        entityManager.close();
+        entityManagerFactory.close();
+        return "output";
+    }
+    @RequestMapping(value = "/findbytext")
+    public String findbytext(Model model, HttpServletRequest request, HttpServletResponse response)throws ServletException , IOException {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("localdatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String name = request.getParameter("name").toString();
+        Query query = entityManager.createNativeQuery(" SELECT * FROM Computers WHERE name LIKE :searchKeyword",Computer.class);
+        query.setParameter("searchKeyword", "%"+name+"%");
+        List resultList = query.getResultList();
         Computer[] array = new Computer[resultList.size()];
         for(int i = 0; i < resultList.size(); i++)
         { array[i] = (Computer) resultList.get(i); }

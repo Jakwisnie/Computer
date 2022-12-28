@@ -16,10 +16,16 @@
 </head>
 <body>
 <button onclick="document.location='home'">Powrot</button><br>
+Zobacz wszystkie
 <button onclick="document.location='viewbydateasc'">Data rosnąco</button>
 <button onclick="document.location='viewbydatedesc'">Data malejaco</button>
 <button onclick="document.location='viewbynameasc'">Nazwa rosnaco</button>
 <button onclick="document.location='viewbynamedesc'">Nazwa malejaco</button>
+
+<form action="${pageContext.request.contextPath}/findbytext" method="POST">
+    Nazwa:<input type="text" name="name"><br>
+    <input type="submit" value="Find">
+</form>
 
 <%
     Computer[] computers = ((Computer[])request.getAttribute("computers"));
